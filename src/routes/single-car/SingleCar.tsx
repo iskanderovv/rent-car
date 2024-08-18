@@ -4,7 +4,7 @@ import { useGetSingleCarQuery } from "../../redux/api/car-api";
 const SingleCar = () => {
   const { id } = useParams();
   const idParam = id !== undefined ? id : '';
-  const { data, isLoading } = useGetSingleCarQuery(idParam);
+  const { data } = useGetSingleCarQuery(idParam);
   console.log(data);
 
   return <div>SingleCar</div>;
