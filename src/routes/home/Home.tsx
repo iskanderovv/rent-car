@@ -1,16 +1,15 @@
 import Cars from "../../components/cars/Cars";
-import { useGetCarsQuery } from "../../redux/api/car-api"
+import Header from "../../components/header/Header";
+import { useGetCarsQuery } from "../../redux/api/car-api";
 
 const Home = () => {
-    const {data, isLoading} = useGetCarsQuery();
-
-    console.log(data?.payload)
-
+  const { data, isLoading } = useGetCarsQuery();
   return (
     <div>
-        <Cars data={data?.payload} isLoading={isLoading} title={"Popular cars"} />
+      <Header />
+      <Cars data={data?.payload} isLoading={isLoading} title={"Popular Cars"} />
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

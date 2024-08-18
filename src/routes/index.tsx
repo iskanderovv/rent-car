@@ -1,12 +1,18 @@
 import { useRoutes } from "react-router-dom";
-import Home from "./home/Home";
-import SingleCar from "./single-car/SingleCar";
+import { lazy } from "react";
+
+
+import Suspense from "../utils";
+
+const Home = lazy(() => import("./home/Home"));
+const SingleCar = lazy(() => import("./single-car/SingleCar"));
+
 
 const RouteController = () => {
   return useRoutes([
     {
       path: "",
-      element: <Home />,
+      element: <Suspense><Home /></Suspense>,
     },
     {
       path: "dashboard",
@@ -14,7 +20,7 @@ const RouteController = () => {
     },
     {
       path: "single-car/:id",
-      element: <SingleCar />,
+      element: <Suspense><SingleCar /></Suspense>,
     },
   ]);
 };
