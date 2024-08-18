@@ -8,8 +8,14 @@ const carApi  = api.injectEndpoints({
                 url: "/cars"
             }),
             providesTags: ["CARS"]
+        }),
+        getSingleCar: build.query<FetchCar, string>({
+            query: (id) => ({
+                url: `/cars/${id}`
+            }),
+            providesTags: ["CARS"]
         })
     })
 })
 
-export const { useGetCarsQuery } = carApi
+export const { useGetCarsQuery, useGetSingleCarQuery } = carApi
